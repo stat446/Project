@@ -1,0 +1,120 @@
+---
+title: "Sampling Project Overview"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(dplyr)
+library(lubridate)
+```
+
+# Project Overview
+
+The project will require a written report and 5 minute oral discussion.
+
+Regardless of whether you choose option 1 (collect your own data), option 2 (use your own dataset), or option 3 (use one of the datasets below), the following components need to be included:
+
+1. Introduction: Concise statement of research question
+2. Sample Size Calculations: Sample size calculation
+3. Sample Design: Description of process for selecting sampling units -- (include code)
+4. Estimation and Results: Mathematical description of estimation procedure
+5. Conclusion: summary of your results from part 3 and 4
+
+# Project Rubric
+The projects will be evaluated from the following rubric. 
+
+\begin{table}[h]
+\scriptsize
+\begin{center}
+\begin{tabular}{|p{.2\linewidth}|p{.6\linewidth}|p{.08\linewidth}|}
+\hline
+{\large \bf Component}&{\large \bf Expectation} & {\large \bf Points} \\
+\hline
+\multicolumn{2}{|l|}{{\bf Introduction} }& {\bf 10} \\
+\hline
+ &Provide thorough overview and background information about the problem you are studying. &5\\
+\hline
+ &Clearly articulate the research questions you are trying to answer. &5\\
+\hline
+\multicolumn{2}{|l|}{{\bf Sample Size Calculations} }& {\bf 10} \\
+\hline
+ &Provide thorough discussion of sample size calculations, including discussion on choosing $d$ the desired margin of error and how $S^2$ is estimated. &10\\
+\hline
+\multicolumn{2}{|l|}{{\bf Sample Design} }& {\bf 10} \\
+\hline
+ &Discuss how the data will be collected (e.g. survey, visual observation, sampling from existing data file, ect...) &5\\
+\hline
+ &Describe and justify your sampling design. Why is this the most appropriate procedure to answer your research questions? &5\\
+\hline
+\multicolumn{2}{|l|}{{\bf Estimation} }& {\bf 15} \\
+\hline
+ &Describe your estimation procedure, (e.g. SRS, regression, ect...) and justify why this is the best method for estimation. &5\\
+\hline
+ & Compute point estimates and confidence intervals for your quantities of interest. Detail the confidence interval procedure and discuss any implicit assumptions. &10\\
+\hline
+\multicolumn{2}{|l|}{{\bf Summary of Findings} }& {\bf 10} \\
+\hline
+ &Describe your results of your estimation procedure and the inferences you can make in regards to your defined research question. What is the target audience Note any problems with scope of inference of limitations in your results. &10\\
+ \hline
+\multicolumn{2}{|l|}{{\bf Other} }& {\bf 25} \\
+\hline
+ &Include code for reproducible research? &5\\
+\hline
+ &Presentation is well rehearsed and engaging, stayed within specified time limits. &10\\
+\hline
+ &Written paper is easy to read, contains proper structure, and grammar. &10\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\newpage
+
+## Potential Data Sets
+This section contains a set of curated datasets for students to explore with the course project. Specific research questions still need to be identified.
+
+## Cluster Sampling: Washington School Immunization
+This dataset contains a set of schools in Washington. Each row in the dataset is a school, so this would be a cluster sampling scheme with the primary sampling unit being a school and within a school all secondary sampling units (the students) are selected. The dataset also contains information about the total number of students at the school, proportion that have been immunized along with additional school information and characteristics.
+
+```{r WA,  message = F}
+WA_Imm <- read_csv('http://www.math.montana.edu/ahoegh/teaching/stat446/WA_Immunization.csv')
+WA_Imm
+```
+
+
+## Allegheny County Dog Licenses
+
+The contains records on dogs registered in Allegheny County, PA (near Pittsburgh). The data set contains information on gender of the dog, breed, and dogs name. This dataset would best answer questions about population proportions, or totals, (such as proportion of dogs that have been spayed or neutered or the proportion of dogs that are a labrador retriever / golden retriever.
+
+Note: This will require a little more coding expertise to organize the data.
+
+
+```{r,  message = F}
+dogs <- read_csv('http://www.math.montana.edu/ahoegh/teaching/stat446/Dogs.csv')
+dogs
+```
+
+
+## Pittsburgh 311 Calls
+
+311 calls are non-emergent police calls (in contrast to 911). The dataset contains a list of ~ 70,000 requests. This will be somewhat similar to the previous example, where it might be best to think about estimating population proportion or total of some characteristics. 
+
+```{r, message = F}
+pitt <- read_csv('http://www.math.montana.edu/ahoegh/teaching/stat446/Pitt311.csv')
+pitt
+```
+
+## Bike Trips 2017
+
+The bike trips data contains information for nearly 250,000 bike rentals during March 2017. For each bike rental, the data contains: start station, end station, rental length (minutes), hour (the rental started), and day of the week.
+
+```{r,  message =F}
+bikes <- read_csv('http://www.math.montana.edu/ahoegh/teaching/stat446/Bike_Trips.csv')
+bikes
+```
+
+
+
+
